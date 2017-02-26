@@ -17,6 +17,8 @@ array_trans = zip(*array) #tenchi
 
 lista = list()
 colorlist = list()
+oklist    = list()
+nglist    = list()
 #lista = []
 
 TARGETF = 300
@@ -26,10 +28,15 @@ for i in array_trans[2]:
     lista.append(i)
     if i <= TARGETF:
         colorlist.append("b")
+        oklist.append(i)
+        nglist.append(0)
     else:
         colorlist.append("r")
-
-plt.bar(array_trans[0], lista, tick_label=array_trans[1], align="center", color=colorlist)
+        oklist.append(TARGETF)
+        nglist.append(i-TARGETF)
+            
+plt.bar(array_trans[0], oklist, tick_label=array_trans[1], align="center", color="royalblue")
+plt.bar(array_trans[0], nglist, tick_label=array_trans[1], align="center", color="tomato", bottom=oklist)
 plt.title("Title")
 plt.grid(True)
 
