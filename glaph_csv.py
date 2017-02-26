@@ -16,15 +16,20 @@ array_trans = zip(*array) #tenchi
 #height = np.array([100, 200])
 
 lista = list()
-
+colorlist = list()
 #lista = []
 
-for i in array_trans[2]:
-    array_trans[3].append = 300
-    lista.append(i-20)
-    
+TARGETF = 300
 
-plt.bar(array_trans[0], lista, tick_label=array_trans[1], align="center")
+for i in array_trans[2]:
+    #array_trans[3].append = 300
+    lista.append(i)
+    if i <= TARGETF:
+        colorlist.append("b")
+    else:
+        colorlist.append("r")
+
+plt.bar(array_trans[0], lista, tick_label=array_trans[1], align="center", color=colorlist)
 plt.title("Title")
 plt.grid(True)
 
